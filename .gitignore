@@ -1,0 +1,20 @@
+# El dataset (data/) y el modelo final (models/) SÍ se versionan.
+
+# Python
+__pycache__/
+*.pyc
+
+# Pesos preentrenados base (ultralytics los descarga solo)
+yolo11n.pt
+
+# Generado por prepare_dataset.py
+datasets/
+
+# Salidas del pipeline (regenerables)
+outputs/
+
+# Entrenamientos nuevos = espacio de trabajo temporal
+runs/
+
+# Ficheros de bloqueo del editor
+.~lock.*#
