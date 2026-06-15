@@ -12,9 +12,8 @@ del texto sensible con un modelo YOLO11n entrenado para este dominio,
 **enmascarado** irreversible (caja negra) sobre la imagen original, y una
 **verificación OCR** posterior que confirma que no queda ningún texto legible.
 
-> 📄 **Memoria técnica**: [`memoria_tecnica.pdf`](memoria_tecnica.pdf)
-> (fuente LaTeX en [`docs/memoria_tecnica.tex`](docs/memoria_tecnica.tex)) ·
-> 🎞️ **Vídeo de presentación**: [`slides_video.pdf`](slides_video.pdf)
+> **Memoria técnica**: [`memoria_tecnica.pdf`](memoria_tecnica.pdf) ·
+> **Vídeo de presentación**: [`slides_video.pdf`](slides_video.pdf)
 
 ---
 
@@ -70,7 +69,7 @@ El modelo ya entrenado está incluido en
 anonimizar nuevas imágenes con las mismas 5 clases. Los pasos 1–2 (más abajo)
 solo son necesarios si se quiere reproducir el entrenamiento desde cero.
 
-> ⚠️ **Nota de red**: `--ocr-check` usa EasyOCR, que descarga su modelo de
+> **Nota de red**: `--ocr-check` usa EasyOCR, que descarga su modelo de
 > reconocimiento la primera vez que se ejecuta. La inferencia con
 > `anonymize.py` / `detect.py` (sin `--ocr-check`) solo necesita
 > `models/deid_hybrid/weights/best.pt` y funciona totalmente offline.
@@ -135,7 +134,7 @@ EasyOCR no detectó **ninguna fuga de información de paciente**. El único
 texto legible restante es metadata no sensible (`CHEST PA`, `PORTABLE`,
 números de habitación, y las etiquetas `PT:` / `MRN:` ya vacías).
 
-> ⚠️ Estas métricas son sobre el conjunto de **validación**, usado también
+> Estas métricas son sobre el conjunto de **validación**, usado también
 > para seleccionar el mejor *checkpoint*. Para un número "a prueba de
 > auditoría" haría falta una partición de test independiente — ver
 > [`memoria_tecnica.pdf`](memoria_tecnica.pdf), sección de conclusiones.
@@ -167,7 +166,7 @@ idéntico (0.971 en ambas), pero `hybrid` produce cajas más ajustadas
 
 ![Comparativa de preprocesado](docs/figures/preprocessing_comparison.png)
 
-> 💡 Las imágenes de la variante `hybrid` se ven "rosáceas" en un visor
+> Las imágenes de la variante `hybrid` se ven "rosáceas" en un visor
 > normal — es esperado, los 3 canales son *features*, no una imagen RGB
 > real. Las salidas anonimizadas finales son siempre la imagen original en
 > escala de grises.
@@ -230,10 +229,7 @@ exportan directamente en formato YOLO (`.txt`), compatible con
 │   └── labels/{train,val}/
 ├── inputs/                       2 radiografías de muestra para demo rápida
 └── docs/
-    ├── memoria_tecnica.tex       fuente LaTeX de la memoria técnica
-    ├── dataset.md                descripción del dataset
-    ├── pipeline.md               descripción del pipeline
-    └── figures/                  figuras usadas en la memoria / este README
+    └── figures/                  figuras usadas en este README
 ```
 
 `datasets/`, `outputs/` y `runs/` se generan al ejecutar el pipeline
@@ -251,6 +247,3 @@ respectivamente) y no se versionan — ver `.gitignore`.
 | 2 | `age`  | `61Y` |
 | 3 | `date` | `2025-08-11` |
 | 4 | `time` | presente solo en ~1/3 de las imágenes |
-
-Más detalle del dataset en [`docs/dataset.md`](docs/dataset.md) y del
-pipeline en [`docs/pipeline.md`](docs/pipeline.md).
