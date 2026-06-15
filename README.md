@@ -246,4 +246,4 @@ respectivamente) y no se versionan — ver `.gitignore`.
 | 1 | `id`   | `ID: 31417` |
 | 2 | `age`  | `61Y` |
 | 3 | `date` | `2025-08-11` |
-| 4 | `time` | presente solo en ~1/3 de las imágenes |
+| 4 | `time` | 07:38 |
